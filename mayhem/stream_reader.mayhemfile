@@ -1,0 +1,7 @@
+project: lewton
+target: stream-reader
+
+cmds:
+  - cmd: /stream_reader
+  - cmd: /stream_reader_no_inst @@
+    libfuzzer: false
