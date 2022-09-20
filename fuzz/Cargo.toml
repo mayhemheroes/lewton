@@ -1,0 +1,27 @@
+[package]
+name = "lewton-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2015"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.lewton]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[profile.release]
+debug = 1
+
+[[bin]]
+name = "stream_reader"
+path = "fuzz_targets/stream_reader.rs"
+test = false
+doc = false
